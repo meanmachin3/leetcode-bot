@@ -1,0 +1,25 @@
+{
+  "name": "leetcode-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["leetcode", "bot", "discord", "algorithms"],
+  "author": "meanmachin3",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0",
+    "later": "^1.2.0",
+    "leetcode-cli": "^2.6.1",
+    "nearley": "^2.18.0",
+    "tmp": "^0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
