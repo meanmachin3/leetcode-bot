@@ -45,9 +45,9 @@ function getProblemHeader(problem) {
 }
 
 async function renewProblemOfADay(hardness) {
-  const pinned = await problemsChannel.fetchPinnedMessages()
+  const pinned = await problemsChannel.fetchPinnedMessages();
   var problemsByType = {};
-  problemsByType[hardness] = null
+  problemsByType[hardness] = null;
 
   var messagesByType = {};
 
@@ -60,12 +60,12 @@ async function renewProblemOfADay(hardness) {
       console.log("Error parsing pinned problem: %s", e);
     }
   }
-  var today = (new Date()).toDateString()
+  var today = (new Date()).toDateString();
 
   if (!problemsByType[hardness] || problemsByType[hardness].date !== today) {
-    newProblem = await leetcodeClient.getAny(hardness)
-    var newMsg = await problemsChannel.send(`[${today}][${hardness}][${newProblem.fid}]\n${getProblemHeader(newProblem)}`)
-    newMsg.pin()
+    newProblem = await leetcodeClient.getAny(hardness);
+    var newMsg = await problemsChannel.send(`[${today}][${hardness}][${newProblem.fid}]\n${getProblemHeader(newProblem)}`);
+    newMsg.pin();
 
     if (messagesByType[hardness]) {
       messagesByType[hardness].unpin();
@@ -110,7 +110,6 @@ Commands:
 
     case "submit":
       try {
-        console.log(words);
         const problemId = words.shift();
         const lang = words.shift();
         var code = words.join(" ");
@@ -121,34 +120,34 @@ Commands:
           if (result.state === 'Accepted') {
             solutionsChannel.send(`Hurray to ${msg.author}!`);
           }
-        })
+        });
       } catch (e) {
         console.log(e);
         solutionsChannel.send("Something went wrong. Please contact admin");
       }
       break;
   }
-})
+});
 
-var everyDaySched = later.parse.cron('0 10 * * 1-5 *')
-var everyMonAndWedSched = later.parse.cron('0 10 * * 1,3 *')
-var everyMonSched = later.parse.cron('0 10 * * 1 *')
+var everyDaySched = later.parse.cron('0 10 * * 1-5 *');
+var everyMonAndWedSched = later.parse.cron('0 10 * * 1,3 *');
+var everyMonSched = later.parse.cron('0 10 * * 1 *');
 
 later.setInterval(async () => {
-  renewProblemOfADay("easy")
+  renewProblemOfADay("easy");
 }, everyDaySched);
 
 later.setInterval(async () => {
-  renewProblemOfADay("medium")
+  renewProblemOfADay("medium");
 }, everyMonAndWedSched);
 
 later.setInterval(async () => {
-  renewProblemOfADay("hard")
+  renewProblemOfADay("hard");
 }, everyMonSched);
 
 process.on('unhandledRejection', (reason, p) => {
   console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
-  console.log(reason.stack)
+  console.log(reason.stack);
 });
 
-discordClient.login(process.env.BOT_TOKEN)
+discordClient.login(process.env.BOT_TOKEN);

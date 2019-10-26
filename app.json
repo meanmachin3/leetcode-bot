@@ -1,0 +1,7 @@
+{
+    "name": "leetcode-bot",
+    "description": "Discord bot that sends leetcode questions every Monday to Friday to practise your algorithmic skills",
+    "repository": "https://github.com/meanmachin3/leetcode-bot.git",
+    "logo": "",
+    "keywords": ["leetcode", "bot", "discord", "algorithms"]
+  }
