@@ -49,3 +49,12 @@ Save changes.
 1. Go to Resources
 2. Scale down your web worker
 3. Scale up your worker node
+
+## Usage
+
+1. `!help`: To see list of commands available
+2. `!submit`: To submit code directly from server to leetcode
+
+## Screenshots
+
+![submit](./files/submit.png)
