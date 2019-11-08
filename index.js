@@ -25,7 +25,7 @@ async function cleanupPinnedProblems() {
 function initProblemsChannel() {
   problemsChannel = discordClient.guilds
     .find(guild => guild.name === process.env.GUILD).channels
-    .find(ch => ch.name === process.env.CHANNEL);
+    .find(ch => ch.name === process.env.DAILY);
   solutionsChannel = discordClient.guilds
   .find(guild => guild.name === process.env.GUILD).channels
   .find(ch => ch.name === process.env.CHANNEL);
@@ -106,6 +106,10 @@ Commands:
       for (var [id, problemMsg] of pinned) {
         msg.reply("\n" + problemMsg.content);
       }
+      break;
+
+    case "ping":
+      msg.channel.send('pong');
       break;
 
     case "submit":
