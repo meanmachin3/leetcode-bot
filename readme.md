@@ -1,4 +1,6 @@
-# Leetcode Grind Bot
+<p align="center">
+    <img alt="Bot" src="./files/bot_icon.gif" width="256" />
+</p>
 
 Discord bot that sends leetcode questions every Monday to Friday to practise your algorithmic skills
 
