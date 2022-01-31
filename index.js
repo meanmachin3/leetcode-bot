@@ -117,7 +117,7 @@ Commands:
         const problemId = words.shift();
         const lang = words.shift();
         var code = words.join(" ");
-        code = code.replace(/^[\s\n]*```[^\s\n]+/, '').replace(/```[\s\n]*$/, '');
+        code = code.replace(/^[\s\n]*```[^\s\n]+/, '').replace(/```[\s\n]*$/, '').replace(/```/, '');
 
         leetcodeClient.submit(problemId, lang, code, (result) => {
           solutionsChannel.send(`${msg.author} submitted problem ${problemId}\n${JSON.stringify(result)}`);
